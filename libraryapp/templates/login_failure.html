@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/bootstrap.min.css.map' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/sytle.css' %}">
+
+    <link rel="stylesheet" href="{% static 'libraryapp/static/all.min.js' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/bootstrap.min.js' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/bootstrap.min.js.map' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/owl.carousel.min.js' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/myscript.js' %}">
+
+    <style>
+        {% comment %} body {
+            background-image: url('/static/images/background.jpg');
+            background-size: cover;
+        } {% endcomment %}
+        h2 a{
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a href="{% url 'login_entry' %}" class="btn btn-warning m-5" title="Go to login page"><i class="fa fa-arrow-left"></i></a>
+              </div>
+        </div>
+    </div> 
+
+
+   
+      
+       
+    <h2 class="text-center mb-5 text-danger">Login Failed !&nbsp<a class="  text-primary"
+        href="{% url 'login_entry' %}">Go to Login Page</a></h2>
+
+    
+</body>
+</html>

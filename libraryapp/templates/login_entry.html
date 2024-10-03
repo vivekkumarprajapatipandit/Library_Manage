@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/bootstrap.min.css.map' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/sytle.css' %}">
+
+    <link rel="stylesheet" href="{% static 'libraryapp/static/all.min.js' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/bootstrap.min.js' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/bootstrap.min.js.map' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/owl.carousel.min.js' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/myscript.js' %}">
+
+
+<style>
+
+    body {
+        background-image: url('/static/images/background.jpg');
+        background-size: cover;
+    }
+
+    .form-control {
+        margin-bottom: 10px;
+        margin-top:5px;
+      }
+    
+      a{
+        text-decoration: none;
+    }
+
+
+</style>
+
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a href="{% url 'home' %}" class="btn btn-warning m-5" title="Go to Home"><i class="fa fa-home"></i></a>
+              </div>
+        </div>
+    </div>
+
+    <div class="container">
+            <form name="form1" method="POST" action="{% url 'login_submit' %}"> 
+                {% csrf_token %}
+            <div class="row mt-5">
+              <div class="offset-md-1 col-md-4 bg-light card shadow-lg">
+                <h2 class="text-center m-2" >Login</h2>
+                <hr>
+               <label>Username</label>
+                <input type="text" id="username" name="T1" placeholder="Enter Username" class="form-control" required>
+                <label>Password</label>
+                <input type="text" id="password" name="T2" placeholder="Enter Password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                title="Password must be at least 8 characters long and include at least one digit, one lowercase and one uppercase letter." required>
+               <hr>
+                <button type="submit" value="Login" class="btn btn-primary">Login</button>
+                <br>
+                <p class="text-center mb-5 text-danger" style="border-top: 2px solid black;">Don't have an account? <a class="  text-primary"
+                    href="{% url 'register' %}">Register</a>.</p>
+              </div>
+            </div>
+        </div>
+        </form>
+      </div>
+  
+
+
+
+
+        
+    
+</body>
+</html>

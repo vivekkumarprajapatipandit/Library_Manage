@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Registration</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/bootstrap.min.css.map' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/sytle.css' %}">
+
+    <link rel="stylesheet" href="{% static 'libraryapp/static/all.min.js' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/bootstrap.min.js' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/bootstrap.min.js.map' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/owl.carousel.min.js' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/myscript.js' %}">
+
+{% comment %} <style>
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    }
+    h2 {
+        text-align: center;
+    }
+    label{
+        font-size:16px;
+
+    }
+    p{
+        font-size:20px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="Password2"],
+    input[type="date"],
+    select,
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .gender-section {
+        margin-bottom: 20px;
+    }
+    .gender-section label {
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+</style> {% endcomment %}
+
+<style>
+    
+
+    body {
+        background-image: url('/static/images/background.jpg');
+        background-size: cover;
+    }
+
+    .form-control {
+        margin-bottom: 10px;
+        margin-top:5px;
+      }
+    
+      {% comment %} a{
+        text-decoration: none;
+    } {% endcomment %}
+
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+                <a href="{% url 'login_entry' %}" class="btn btn-warning m-5" title="Go to login page"><i class="fa fa-arrow-left"></i></a>
+                </div>
+            <div class="offset-md-10 col-md-1">
+                <a href="{% url 'home' %}" class="btn btn-warning m-5" title="Go to Home"><i class="fa fa-home"></i></a>
+              </div>
+        </div>
+    </div> 
+
+
+    
+    
+        <div class="container">
+                <form name="form2" method="POST" action="{% url 'register' %}"> 
+                    {% csrf_token %}
+                <div class="row mt-2 mb-2">
+                  <div class="offset-md-1 col-md-5 bg-light card shadow-lg">
+                    <h2 class="text-center m-2" >User Sign Up</h2>
+                    <hr>
+                    <label>Full Name</label>
+                    <input type="text" id="Fullname" name="Fullname" placeholder="Enter your Full Name" class="form-control" required>
+                   <label>Username</label>
+                    <input type="text" id="Username" name="Username" placeholder="Enter Username" class="form-control" required>
+                    <label>Email</label>
+                    <input type="email" id="Email" name="Email" placeholder="Enter your Email" class="form-control" required>
+                    <label>Password</label>
+                    <input type="text" id="Password" name="Password" placeholder="Enter Password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                    title="Password must be at least 8 characters long and include at least one digit, one lowercase and one uppercase letter." required>
+                    <label>Confirm Password</label>
+                    <input type="text" id="Password" name="Password" placeholder="Confirm Password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                    title="Password must be at least 8 characters long and include at least one digit, one lowercase and one uppercase letter." required>
+
+                    <label>Contact Number</label>
+                    <input type="text" id="Aadhar" name="Aadhar" placeholder="Enter Contact Number" class="form-control" required>
+                    
+                    <label>Gender </label>
+                    <select id="Gender" name="Gender" class="form-control" required>
+                        <option></option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+
+                    <label>Date of Birth</label>
+                    <input type="date" id="DOB" name="DOB" class="form-control">
+
+                    
+                    <label>Language</label>
+                  <select class="form-control" id="Language" name="Language" required>
+                    <option></option>
+                  <option>English</option>
+                  <option>Hindi</option>
+                  <option>Sanskrit</option>
+                  <option>Mandarin</option>
+                  <option>Spanish</option>
+                  <option>French</option>
+                  <option>Arabic</option>
+                  <option>Russian</option>
+                  <option>Portuguese</option>
+                  <option>German</option>
+                  <option>Other</option>
+                 </select>
+                  <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                    <button type="submit" value="Register" class="btn btn-primary">Register</button>
+                <br>
+                    <p class="text-center mb-5 text-success" style="border-top: 2px solid black;">Already have an account ? <a class="  text-danger"
+                        href="{% url 'login_entry' %}">Login</a>.</p>
+                  </div>
+                </div>
+            </div>
+            </form>
+          </div>
+      
+    
+    
+    
+
+          
+
+</body>
+</html>
+

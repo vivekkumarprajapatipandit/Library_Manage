@@ -1,0 +1,111 @@
+<Html>  
+    <head>   
+    <title> Edit Page </title>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/bootstrap.min.css.map' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'libraryapp/static/sytle.css' %}">
+
+    <link rel="stylesheet" href="{% static 'libraryapp/static/all.min.js' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/bootstrap.min.js' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/bootstrap.min.js.map' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/owl.carousel.min.js' %}">
+    <link rel="stylesheet" href="{% static 'libraryapp/static/myscript.js' %}">
+
+
+    <style>
+        .form-control {
+            margin-bottom: 10px;
+            margin-top:0px;
+          }
+
+          
+        </style>
+
+
+    </head>
+    <body> 
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <a href="{% url 'home' %}" class="btn btn-warning mt-5" title="Go to Home"><i class="fa fa-home"></i></a>
+                  </div>
+            </div>
+        </div> 
+    
+    <div class="container">
+      <h1 class="text-center text-warning ">Edit Books Details</h1>
+    </div>
+    <br>
+    
+    
+    <div class="container">
+        <form name="form3" method="POST" action="{% url 'submit' %}"> 
+            {% csrf_token %}
+        <div class="row mt-2 mb-2">
+          <div class="col-md-6 m-auto bg-light card shadow-lg">
+         
+            <table class="m-5">  
+    
+                <tr>
+                <td>Book Name  </td>
+                <td><input type="text" id="T1" name="T1" value="{{ T1.BookName }}" class="form-control"></td>
+                </tr>
+                <tr>
+                <td> Description </td>
+                <td><input type="text" id="T2" name="T2" value="{{ T1.Description }}" class="form-control"></td>
+                </tr>
+                <tr>
+                <td> Author  </td>
+                <td><input type="text" id="T3" name="T3" value="{{ T1.Author }}" class="form-control"></td>
+                </tr>
+                <tr>
+                <td> Price  </td>
+                <td><input type="text" id="T4" name="T4" value="{{ T1.Price }}" class="form-control"></td>
+                </tr>
+                <tr>
+                <td> Category </td>
+                <td><input type="text" id="T5" name="T5" value="{{ T1.Category }}" class="form-control"></td>
+                </tr>
+                <tr>
+                <td> Pages  </td>
+                <td><input type="text" id="T6" name="T6" value="{{ T1.Pages }}" class="form-control"></td>
+                </tr>
+                <tr>
+                <td> Date Of publish  </td>
+                <td><input type="date" id="T7" name="T7" value="{{ T1.Date_Of_Publish }}" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td> Book CoverPage Photo </td>
+                    <td><input type="file" id="T8" name="T8" value="{{ T1.Photo }}"/\ class="form-control"></td>
+                    </tr>
+                {% comment %} <tr>
+                <td> Book CoverPage Photo </td>
+                <td><input type="file" id="T8" name="T8" accept="image/*" class="form-control"></td>
+                </tr> {% endcomment %}
+            
+                <tr>
+                    <td>
+                        <button type="reset" value="reset" class="btn btn-danger">Reset</button>
+                    </td>
+                    <td>
+                    <button type="submit" value="submit" class="btn btn-success">Update</button>
+                </td>
+            </tr>
+                </table>
+    
+        </div>
+    </div>
+    </form>
+    </div>
+   
+    </body>
+    </html>
+    
+    
